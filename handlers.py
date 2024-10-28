@@ -25,16 +25,20 @@ def change_contact(args, book):
     return f"Contact {name} updated!"
 
 
+# @input_error
+# def show_phone(args, book):
+#     name, *_ = args
+#     record = book.find(name)
+#     if record:
+#         phone_numbers = ", ".join(phone.value for phone in record.phones)
+#         return f"{name}'s phone number(s): {phone_numbers}"
+#     else:
+#         return f'Contact {name} not found.'
 @input_error
 def show_phone(args, book):
     name, *_ = args
     record = book.find(name)
-    if record:
-        phone_numbers = ", ".join(phone.value for phone in record.phones)
-        return f"{name}'s phone number(s): {phone_numbers}"
-    else:
-        return f'Contact {name} not found.'
-
+    return str(record) if record else f'Contact {name} not found.'
 
 @input_error
 def show_all(book):

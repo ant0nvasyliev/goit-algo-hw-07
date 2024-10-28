@@ -23,8 +23,6 @@ class Name(Field):
 class Phone(Field):
     def __init__(self, value):
         self.value = validate_number(value)
-        if self.value is None:
-            raise ValueError("Invalid phone number format")
         super().__init__(self.value)
 
 
